@@ -134,6 +134,55 @@ header img{
 }
 
 
+/* SLIDES */
+
+.slides-container {
+  position: relative;
+  width: 66vw;
+  margin: auto;
+  
+}
+
+.slides {
+  display: none;  
+}
+
+.slides > *:first-child {
+  width: 100%;
+  box-shadow: 0 10px 20px 10px var(--grey1);
+}
+
+.slides p {
+  padding: 3.2rem;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 33.33%;
+  padding: 1.6rem;
+
+  color: white;
+  text-shadow: 5px 5px 10px var(--grey1);
+  font-weight: bold;
+  font-size: 4.8rem;
+  border-radius: 0 3px 3px 0;
+
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: var(--grey1);
+}
+
+
 
   /* MAP */
 
