@@ -309,4 +309,26 @@ header img{
     }
   }
 
+    /* GALLERY */
+
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+    }
   
+    .gallery{
+      margin: 1rem;   
+      width: 30rem;
+      box-shadow: 0 10px 20px 10px var(--grey1);
+    }
+
+    .gallery:hover{
+      /* width: 60rem; */
+      transform: scale(2, 2);
+      transition-delay: 100ms;
+      box-shadow: 0 10px 100px 50px var(--grey1);
+    }
+
+ 
