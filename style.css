@@ -319,16 +319,16 @@ header img{
     }
   
     .gallery{
-      margin: 1rem;   
+      margin: 1.6rem;   
       width: 30rem;
       box-shadow: 0 10px 20px 10px var(--grey1);
     }
 
     .gallery:hover{
-      /* width: 60rem; */
       transform: scale(2, 2);
       transition-delay: 100ms;
       box-shadow: 0 10px 100px 50px var(--grey1);
     }
+
 
  
