@@ -1,5 +1,5 @@
 // path for the map resources
-const srcPath = "../images/map/";
+const srcPath = "images/map/";
 
 
 // creating basemap with Open Streen Map
@@ -41,7 +41,7 @@ var customStyleFunction = function(feature) {
 
 var vectorPhoto = new ol.layer.Vector({
     source: new ol.source.Vector({
-    url:"alesund.geojson",
+    url:"js/alesund.geojson",
     format: new ol.format.GeoJSON(),
     }),
     style: customStyleFunction
@@ -75,7 +75,7 @@ vectorShop.getSource().addFeature(shopCentrum);
 var iconStyle = new ol.style.Style({
     image: new ol.style.Icon({
     opacity: 1,
-    src: "../images/map/bike-shop.png",
+    src: "images/map/bike-shop.png",
     height:0.1,
     width:0.1,
     }),
