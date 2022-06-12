@@ -1,1 +1,277 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"Helleren","path":"helleren.jpg"},"geometry":{"type":"Point","coordinates":[6.351642608642578,58.32833123078011]}},{"type":"Feature","properties":{"name":"Wathne camping","path":"wathne.jpg"},"geometry":{"type":"Point","coordinates":[6.061363220214843,59.073213040144346]}},{"type":"Feature","properties":{"name":"Norwegian National Road 13","path":"13.jpg"},"geometry":{"type":"Point","coordinates":[6.78955078125,59.64415224284856]}},{"type":"Feature","properties":{"name":"Sande camping","path":"sande.jpg"},"geometry":{"type":"Point","coordinates":[6.2807464599609375,60.12132921812561]}},{"type":"Feature","properties":{"name":"Odda","path":"odda.jpg"},"geometry":{"type":"Point","coordinates":[6.6192626953125,60.23708440981365]}},{"type":"Feature","properties":{"name":"Norwegian National Road 7","path":"7.jpg"},"geometry":{"type":"Point","coordinates":[6.93511962890625,60.46940390715115]}},{"type":"Feature","properties":{"name":"Voringsfossen","path":"voringsfossen.jpg"},"geometry":{"type":"Point","coordinates":[7.2528648376464835,60.42836334704378]}},{"type":"Feature","properties":{"name":"Stegastein","path":"aurlandsvangen2.jpg"},"geometry":{"type":"Point","coordinates":[7.211923599243163,60.90861424247113]}},{"type":"Feature","properties":{"name":"Aurlandsfjellet","path":"aurlandsvangen.jpg"},"geometry":{"type":"Point","coordinates":[7.3313140869140625,61.00008276783953]}},{"type":"Feature","properties":{"name":"Norwegian sheeps","path":"aurlandsvangen3.jpg"},"geometry":{"type":"Point","coordinates":[7.412681579589843,61.09514712666161]}},{"type":"Feature","properties":{"name":"Sogndal","path":"sogndal.jpg"},"geometry":{"type":"Point","coordinates":[7.11090087890625,61.23192293097062]}},{"type":"Feature","properties":{"name":"Norwegian National Road 55","path":"55.jpg"},"geometry":{"type":"Point","coordinates":[7.937965393066405,61.55247405736774]}},{"type":"Feature","properties":{"name":"Bessegen","path":"bessegen.jpg"},"geometry":{"type":"Point","coordinates":[8.68366241455078,61.5030447447429]}},{"type":"Feature","properties":{"name":"Dombas","path":"dombas.jpg"},"geometry":{"type":"Point","coordinates":[9.23126220703125,61.99316730807376]}},{"type":"Feature","properties":{"name":"Rauma","path":"andalsnes.jpg"},"geometry":{"type":"Point","coordinates":[8.032379150390625,62.379547922488335]}},{"type":"Feature","properties":{"path":"trollstigen.jpg","name":"Trollstigen"},"geometry":{"type":"Point","coordinates":[7.670173645019532,62.452517373076404]}},{"type":"Feature","properties":{"name":"Valldal","path":"valldal.jpg"},"geometry":{"type":"Point","coordinates":[7.469930648803711,62.32964686002009]}},{"type":"Feature","properties":{"path":"alesund.jpg","name":"Alesund"},"geometry":{"type":"Point","coordinates":[6.2457275390625,62.469184741604806]}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+
+  {
+      "type": "Feature",
+      "properties": {
+        "name": "Kristiansand",
+        "path": "kristiansand.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        7.990493774414062,
+          58.134108523925526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Helleren",
+        "path": "helleren.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        6.364603042602539,
+          58.329457849795865
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wathne camping",
+        "path": "wathne.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.061363220214843,
+          59.073213040144346
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Norwegian National Road 13",
+        "path": "13.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        6.667220592498779,
+          59.57330937024757
+        ]
+      }
+    },
+    
+
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sande camping",
+        "path": "sande.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2807464599609375,
+          60.12132921812561
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Odda",
+        "path": "odda.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        6.547336578369141,
+          60.06895199883379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Voringsfossen",
+        "path": "voringsfossen.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.2528648376464835,
+          60.42836334704378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Norwegian National Road 7",
+        "path": "7.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        7.0346832275390625,
+          60.47041920980352
+
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stegastein",
+        "path": "aurlandsvangen2.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.211923599243163,
+          60.90861424247113
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Aurlandsfjellet",
+        "path": "aurlandsvangen.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        7.35706329345703,
+          60.93226706714691
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Norwegian sheeps",
+        "path": "aurlandsvangen3.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        7.314147949218749,
+          61.03352074474644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sogndal",
+        "path": "sogndal.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.11090087890625,
+          61.23192293097062
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Norwegian National Road 55",
+        "path": "55.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        7.973842620849609,
+          61.56032313189309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bessegen",
+        "path": "bessegen.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        8.692245483398438,
+          61.50439609365084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dombas",
+        "path": "dombas.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        8.858413696289062,
+          62.10291872523539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Rauma",
+        "path": "andalsnes.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        8.065338134765625,
+          62.34323549533354
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "path": "trollstigen.jpg",
+        "name": "Trollstigen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.670173645019532,
+          62.452517373076404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Valldal",
+        "path": "valldal.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.469930648803711,
+          62.32964686002009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "path": "alesund.jpg",
+        "name": "Alesund"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+        6.1688232421875,
+          62.47457980154649
+        ]
+      }
+    }
+  ]
+}
