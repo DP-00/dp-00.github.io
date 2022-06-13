@@ -13,6 +13,10 @@ function moveSlides(step) {
   else if (index < 0) {index = slides.length-1} 
   slides[index].style.display = "block";
 
+  if(index === 0){
+    mapbox.resize();
+  }
+
   if(index === 1){
     map.updateSize();
   }

@@ -166,7 +166,7 @@ header img{
 .prev,
 .next {
   position: absolute;
-  top: 36rem;
+  top: 30rem;
   padding: 1.6rem;
 
   color: white;
@@ -219,15 +219,10 @@ header img{
 
 }
 
-
 #mapbox-info p{
   padding: 0.8rem;
   height: 5rem;
 }
-
-
-
-
 
 #text-container h3{
   font-size: 3.2rem;
@@ -281,6 +276,7 @@ header img{
   #map-container{
     position: relative;
     height: 80vh;
+    min-height: 60rem;
     width: 100%;
   } 
 
@@ -297,10 +293,11 @@ header img{
     background-color: rgba(14,36,36, 0.85);
     padding: 2.4rem;
     margin: 2.4rem;
+    margin-right: 4.8rem;
     height: auto;
-    width: 30%; 
+    width: 40%; 
 
-    line-height: 4.8rem;
+    line-height: 3.6rem;
     font-size: 2.4rem;
   }
 
@@ -318,7 +315,7 @@ header img{
     width: auto;
   }
 
-  
+/*   
   @media (min-width: 330px) and (max-width: 1600px) and (min-height: 600px){
 
     #map-container{
@@ -348,7 +345,7 @@ header img{
       padding-bottom: 0;
       max-width: 40rem;
     }
-  }
+  } */
 
   @media (max-width: 330px) and (min-height: 600px){
 
