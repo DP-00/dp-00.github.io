@@ -92,8 +92,21 @@ h2 {
 }
 
 p {
-    padding: 1.6rem 0;
+    padding: 3.2rem 0;
     line-height: 6.4rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--grey3);
+}
+
+a:visited {
+  color: var(--grey3);
+}
+
+a:hover {
+  text-shadow:0 0 2px var(--grey3);
 }
 
 /* HEADER */
@@ -137,10 +150,7 @@ header img{
 /* SLIDES */
 
 .slides-container {
-  position: relative;
-  width: 66vw;
-  margin: auto;
-  
+  position: relative;  
 }
 
 .slides {
@@ -150,16 +160,13 @@ header img{
 .slides > *:first-child {
   width: 100%;
   box-shadow: 0 10px 20px 10px var(--grey1);
-}
-
-.slides p {
-  padding: 3.2rem;
+  margin-bottom: 4.8rem;
 }
 
 .prev,
 .next {
   position: absolute;
-  top: 33.33%;
+  top: 36rem;
   padding: 1.6rem;
 
   color: white;
@@ -183,12 +190,97 @@ header img{
 }
 
 
+/* MAPBOX */
 
-  /* MAP */
+
+#mapbox { 
+  width: 100%; 
+  height: 80vh;
+  min-height: 60rem;
+}
+
+#mapbox-info{
+  position: absolute;
+  width: 33%;
+  min-width: 34rem;
+
+  z-index: 2;
+  top: 5rem;
+  right: 10rem;
+  font-size: 2.4rem;
+  color: var(--grey3);
+  text-align: right;
+
+  letter-spacing: 0.5rem;
+  line-height: 3.2rem;
+  box-shadow: -181px 134px 150px -1px var(--grey1) inset;
+  padding-bottom: 1.6rem;
+  padding-right: 0.8rem;
+
+}
+
+
+#mapbox-info p{
+  padding: 0.8rem;
+  height: 5rem;
+}
+
+
+
+
+
+#text-container h3{
+  font-size: 3.2rem;
+  margin-top: 3.2rem;
+}
+
+#lng, #lat {
+  display: inline-block;
+  width: 12rem;
+}
+
+
+
+#photo-container{
+  display: none; 
+}
+
+#photo-container img{
+  width:100%;
+  box-shadow: 0 10px 100px 50px rgb(12, 12, 12);
+}
+
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color:var(--grey1);
+}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+  border-top-color:var(--grey1);
+}
+
+.mapboxgl-popup-close-button{
+  color: var(--grey3);
+} 
+.mapboxgl-popup-content{
+  background-color: var(--grey1);
+  color: var(--grey3);
+  
+}
+
+#popup-header{
+  font-size: 2.4rem;
+  letter-spacing: 0.8rem;
+  padding: 0.2rem;
+  text-align: center;
+}
+
+
+  /* MAP OL*/
 
   #map-container{
     position: relative;
-    height:60vh;
+    height: 80vh;
     width: 100%;
   } 
 
@@ -316,6 +408,7 @@ header img{
       flex-wrap: wrap;
       justify-content: space-evenly;
       align-items: center;
+      margin-top: 4.8rem;
     }
   
     .gallery{
@@ -349,6 +442,10 @@ header img{
     #copyright {
       text-align: center;
       font-size: 1.6rem;
+    }
+
+    footer p {
+      text-align: center;
     }
 
 

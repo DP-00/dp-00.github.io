@@ -2,6 +2,7 @@
 const srcPath = "images/map/";
 
 
+
 // creating basemap with Open Streen Map
 var map = new ol.Map({
     target: 'map',
@@ -15,6 +16,8 @@ var map = new ol.Map({
     zoom: 11.5
     })
 });
+
+map.updateSize()
 
 // creating style for photo points
 
@@ -91,6 +94,7 @@ map.addLayer(vectorShop);
 
 // display pop-up window on click on map feature
 map.on('click', function (evt) {
+
     const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
     return feature;
     });

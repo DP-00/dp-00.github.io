@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.css" />
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -18,12 +21,12 @@
 
     <main>
         <section id="about">
-            <p> Passion for maps, data analysis, environment and travel has resulted in choosing Geoinformatics 
-                as a subject of my development. For a couple of years I have been eager to learn new technologies 
+            <p> Passion for maps, data analysis, environment and traveling has resulted in choosing Geoinformatics 
+                as a field of my development. For a couple of years I have been eager to learn new technologies 
                 that enable me to create modern geospatial products with implications in the  real world. 
                 Some of the presented projects were created as a part of assignments during my studies, 
-                while the others for my personal use. Below there is also a set of certificates that shows process 
-                of my development over the years.My goal for the future is to not only use available solutions, 
+                while the others are for my personal use. Below there is also a set of certificates that presents process 
+                of my development over the years. My goal for the future is to not only use available solutions, 
                 but also to contribute to the geospatial community with my own ideas.
             </p>
         </section>
@@ -33,6 +36,45 @@
             <h2>Projects</h2>
 
             <div class="slides-container">
+
+                <div class="slides">
+                    <div id="mapbox-container">
+                
+                        <div id="mapbox"></div>
+
+                        <div id="mapbox-info">
+                            <div id="photo-container">
+                                <img id="map-photo"src="images/roadtrip/kristiansand.jpg">
+                                <p id="photo-title"></p> 
+
+                                  
+                            </div>
+                            <div id="text-container">
+                                <p>Longitude:<span id="lng"></span></p>
+                                <p>Latitude:<span id="lat"></span></p>
+                                <p id="km">0 km</p>
+                                <h3>Norway 2021</h3>
+                                <!-- <p id="distance">Distance travelled:<span id="km">0 km</span></p> -->                                
+                            </div>  
+                        </div>
+                
+            
+                    </div>
+
+                    <p>Using  recorded GPS Track and photos from the journey I visualized memories from the great road trip across Norway. 
+                        Map was created using Mapbox GL JS and Turf.js libraries with data imported from GeoJSON file 
+                        that contains coordinates of taken photos, name of the place and file name. 
+                        Rendered track is updated in real-time as it was suggested in 
+                        <a href="https://docs.mapbox.com/mapbox-gl-js/example/live-update-feature"> this Mapbox example</a>. </p>
+                    <p>
+                        For images appearing at the moment the path gets closer I used Turf function that returns the closest point on the line. 
+                        Before visualization process there is a new GeoJSON created that contains corresponding point 
+                        on the GPS Track and information about real point. Once the path is being rendered there is a comparison 
+                        if there is any new photo to display on the way. During presentation it is also possible to adjust map zoom level 
+                        and position if you want explore some places in details. Pins that are created along the way enable to open pop-up 
+                        that shows picturesque places along the road that were presented before.</p>
+                </div>
+
 
                 <div class="slides">
                     <div id="map-container">
@@ -47,9 +89,9 @@
                         </div>                
                     </div>
 
-                    <p>Presented map was created using OpenLayers library as a part of the website for bike rental company during 
-                        Web Application and Application Development course. As it was during my exchange when I did not 
-                        have geoinformatics part included in my studies I wanted to added it myself by creating this interactive map. 
+                    <p>Presented map was created using OpenLayers library as a part of a website for a bike rental company during 
+                        Web technologies and Application Development courses. As it was during my exchange when I did not 
+                        have geoinformatics part included in my studies, I wanted to add it myself by creating this interactive map. 
                         Using it, potential customer can explore places near rental points and might want to start the journey as soon as possible.</p>
                 </div>
 
@@ -59,19 +101,19 @@
                         Your browser does not support the video tag.
                     </video> 
                     <p>Path Explorer is a first-person puzzle video game requiring spatial recognition skill to solve those challenges. 
-                        Open world enables exploration of the best places from Møre og Romsdal region (Norwegian county), where the action take place. 
+                        Open world enables exploration of the best places from Møre og Romsdal region (Norwegian county), where the action takes place. 
                         The terrain used in the game presents real world data as it was implemented using Mapbox Maps SDK for Unity. 
                         Various 3D model maps are waiting in set points. 
                         They will show the place where the user is standing right now and the next destination. 
                         The task is to remember where the place is and be able to navigate to it. 
-                        During the journey, distances will get longer and there will be more obstacles on the way. <br> 
-                        The game was developed using Unity, with C# scripts for behaviors. 
+                        During the journey, distances will get longer and there will be more obstacles on the way. </p>
+                    <p> The game was developed using Unity, with C# scripts for behaviors. 
                         Logo and UI elements were created in SketchBook - raster graphics software from Autodesk. 
-                        Small terrain model and the first level maps texture were created in Blender. Contours textures were developed in QGIS. <br> 
-                        It was developed individually as a final project for Game Development course during my student exchange to Norway. 
+                        Small terrain model and the first level maps texture were created in Blender. Contours textures were developed in QGIS. 
+                        The game was developed individually as a final project for a Game Development course during my student exchange to Norway. 
                         I wanted to create a geospatial game for everyone regardless of their previous gaming experience. 
-                        The idea emerged after noticing that many people struggle these days to go around the terrain or using maps. 
-                        I think this skill is very useful and learning it in Norway scenery might be a very pleasant experience. </p>
+                        The idea emerged after noticing that many people struggle to go around the terrain or using maps these days. 
+                        I think that this skill is very useful and learning it in the Norwegian scenery might be a very pleasant experience. </p>
                 </div>
            
                 <div class="slides">
@@ -79,11 +121,11 @@
                         <source src="videos/PowerBI.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video> 
-                    <p>I believe that insightful spatial visualization can be very helpful to understand many environmental problem, 
-                        so in the future there are possible to solve. That is way I wanted to get involved in the university project, 
+                    <p>I believe that insightful spatial visualization can be very helpful to understand many environmental problems, 
+                        so in the future they are possible to solve. This is the way I wanted to get involved in the university project, 
                         beside my main study course, that aimed to understand the problem of waste on the Norwegian coastline. 
                         Using PowerBI together with one other student we processed real-world data accumulated through several years 
-                        and presented it on interactive charts with maps. It was later in the meeting with people 
+                        and presented it on interactive charts with maps. It was later shown in the meeting with people 
                         from environmental organizations that were trying to tackle this issue.</p>
                 </div>
 
@@ -118,8 +160,12 @@
             </div>
 
             <!--  libraries for map programming    -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/css/ol.css" type="text/css">
-            <link rel="stylesheet" href="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.css" />
+            
+            <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+            <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+            <script src="js/mapbox.js"></script> 
+
+
             <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.13.0/build/ol.js"></script>
             <script src="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.js"></script>
             <script src="js/map.js"></script>  
@@ -132,9 +178,9 @@
         
             <h2>Certificates</h2>
             <p>As a part of my self-directed learning, 
-                from the very beginning of my studies I have taken many online courses such as the Esri MOOC, 
-                Python courses on Kaggle and NASA webinars that enables me to constantly broaden my knowledge 
-                and learn specialized English vocabulary. Their duration varies from hour to several weeks as in the case of MOOC. 
+                from the very beginning of my studies I have taken many online courses such as the Esri MOOCs, 
+                Python courses on Kaggle and NASA webinars that enable me to constantly broaden my knowledge 
+                and learn specialized English vocabulary. Their duration varies from an hour to several weeks as in the case of MOOCs. 
                 All of them had a practical part where you either had to create small projects or solve short tasks connected to their topic.
                 Those training enhanced my knowledge in fields like Web Application development (also geospatial one), 
                 Remote Sensing and Image processing, Python programming as well as geospatial data analysis, processing and visualization.</p>
