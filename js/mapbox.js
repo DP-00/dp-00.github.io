@@ -62,9 +62,7 @@ mapbox.on('load', async () => {
             ]
         }
     });
-
-
-                    
+                  
     let photoContainer = document.getElementById('photo-container');
     let mapPhoto = document.getElementById('map-photo');
     let photoTitle = document.getElementById('photo-title');
@@ -76,45 +74,62 @@ mapbox.on('load', async () => {
     let srcPath = 'images/roadtrip/';
 
     const timer = setInterval(() => {
-        if (i < coordinates.length) {
-            data.features[0].geometry.coordinates.push(coordinates[i]);
-            mapbox.getSource('trace').setData(data);
+        
+        if(isInViewport(photoContainer) && slides[0].style.display === "block"){
 
-            distance.innerText = Math.round(turf.length(data)) + "km";
-
-            let lng = (Math.round(data.features[0].geometry.coordinates[i][0] * 100))/100;
-            let lat = (Math.round(data.features[0].geometry.coordinates[i][1] * 100))/100;
-            photoCoordsLng.innerText = lng;
-            photoCoordsLat.innerText = lat;
-
-            for (let j=0; j < geojson.features.length; j++){
-                
-                if(JSON.stringify(coordinates[i])===JSON.stringify(geojson.features[j].geometry.coordinates[0])){
-                
-                    photoContainer.style.display="inline";
-                    photoName = geojson.features[j].properties.name;
-                    photoPath = geojson.features[j].properties.path;
-                    mapPhoto.src= srcPath + photoPath;
-                    photoTitle.innerText = photoName;
-
-
-                    const marker = new mapboxgl.Marker({
-                        color: "#5e0101",
-                        scale: 1.5
-                    }).setLngLat(geojson.features[j].properties.coords)
-                    .setPopup(new mapboxgl.Popup({maxWidth:'none'})
-                    .setHTML("<p id='popup-header'>"+ photoName + "</p><img width='400px' src="+ srcPath + photoPath+ ">")) 
-                    .addTo(mapbox);
-                }               
+            if (i < coordinates.length) {
+                data.features[0].geometry.coordinates.push(coordinates[i]);
+                mapbox.getSource('trace').setData(data);
+    
+                distance.innerText = Math.round(turf.length(data)) + "km";
+    
+                let lng = (Math.round(data.features[0].geometry.coordinates[i][0] * 100))/100;
+                let lat = (Math.round(data.features[0].geometry.coordinates[i][1] * 100))/100;
+                photoCoordsLng.innerText = lng;
+                photoCoordsLat.innerText = lat;
+    
+                for (let j=0; j < geojson.features.length; j++){
+                    
+                    if(JSON.stringify(coordinates[i])===JSON.stringify(geojson.features[j].geometry.coordinates[0])){
+                    
+                        photoContainer.style.display="inline";
+                        photoName = geojson.features[j].properties.name;
+                        photoPath = geojson.features[j].properties.path;
+                        mapPhoto.src= srcPath + photoPath;
+                        photoTitle.innerText = photoName;
+    
+    
+                        const marker = new mapboxgl.Marker({
+                            color: "#5e0101",
+                            scale: 1.5
+                        }).setLngLat(geojson.features[j].properties.coords)
+                        .setPopup(new mapboxgl.Popup({maxWidth:'none'})
+                        .setHTML("<p id='popup-header'>"+ photoName + "</p><img width='400px' src="+ srcPath + photoPath+ ">")) 
+                        .addTo(mapbox);
+                    }               
+                }
+    
+                i++;
+    
+            } 
+            else {
+                window.clearInterval(timer);
             }
-
-            i++;
-
-        } 
-        else {
-            window.clearInterval(timer);
+    
         }
-
+ 
     }, 4);
 
+
+
 });
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}

@@ -63,15 +63,15 @@
 
                     <p>Using  recorded GPS Track and photos from the journey I visualized memories from the great road trip across Norway. 
                         Map was created using Mapbox GL JS and Turf.js libraries with data imported from GeoJSON file 
-                        that contains coordinates of taken photos, name of the place and file name. 
+                        that contains coordinates of taken photos, name of the place and a file name. 
                         Rendered track is updated in real-time as it was suggested in 
                         <a href="https://docs.mapbox.com/mapbox-gl-js/example/live-update-feature"> this Mapbox example</a>. </p>
                     <p>
-                        For images appearing at the moment the path gets closer I used Turf function that returns the closest point on the line. 
+                        I used Turf function that returns the closest point on the line to show images at the moment the path gets closer. 
                         Before visualization process there is a new GeoJSON created that contains corresponding point 
                         on the GPS Track and information about real point. Once the path is being rendered there is a comparison 
                         if there is any new photo to display on the way. During presentation it is also possible to adjust map zoom level 
-                        and position if you want explore some places in details. Pins that are created along the way enable to open pop-up 
+                        and position if you want to explore some places in details. Pins that are created along the way enable to open pop-up 
                         that shows picturesque places along the road that were presented before.</p>
                 </div>
 
@@ -117,7 +117,7 @@
                 </div>
            
                 <div class="slides">
-                    <video autoplay muted controls>
+                    <video muted controls>
                         <source src="videos/PowerBI.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video> 
