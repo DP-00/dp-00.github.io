@@ -109,6 +109,26 @@ a:hover {
   text-shadow:0 0 2px var(--grey3);
 }
 
+button{
+  background-color: var(--blue2);
+  font-weight: bolder;
+  letter-spacing: 0.2rem;
+  position: absolute;
+  /* bottom: 3rem; */
+  right: 0;
+  color: var(--grey3);
+  padding: 1.6rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4rem;
+}
+
+button:hover{
+  background-color: var(--blue-dark);
+}
+
 /* HEADER */
 header {
   position: relative;
@@ -149,6 +169,10 @@ header img{
 
 /* SLIDES */
 
+#projects {
+  margin-bottom: 12.8rem;
+}
+
 .slides-container {
   position: relative;  
 }
@@ -160,6 +184,7 @@ header img{
 .slides > *:first-child {
   width: 100%;
   box-shadow: 0 10px 20px 10px var(--grey1);
+  border:rgba(11, 70, 65, 0.7);
   margin-bottom: 4.8rem;
 }
 
