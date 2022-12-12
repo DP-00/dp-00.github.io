@@ -168,6 +168,9 @@ header img{
 
 
 /* SLIDES */
+/* video{
+  max-width: 1500px;
+} */
 
 #projects {
   margin-bottom: 12.8rem;
@@ -175,6 +178,10 @@ header img{
 
 .slides-container {
   position: relative;  
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .slides {

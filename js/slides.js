@@ -4,7 +4,7 @@ let slides = document.getElementsByClassName("slides");
 
 
 slides[index].style.display = "block";
-
+moveSlides(-1);
 
 function moveSlides(step) {
   slides[index].style.display = "none";
