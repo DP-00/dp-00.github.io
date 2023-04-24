@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navigating the Geo-Conservation World</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header> 
+        <div class="text-hero">
+            <h1>Navigating the <br>Geo-Conservation<br> World</h1>   
+            <p>A Step-by-Step Guide to <br>Geospatial Technology, Data Repositories,<br> and Skills for Biodiversity Conservation <br>by Dagmara Pasiak & Claudia Blagu </p> 
+        </div>
+        <img src="images/hero.jpg" alt="">
+        <div class="overlay"></div>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <p> Have you ever wondered how scientists can track the animal migration path or determine whether an area needs to be protected or not? 
+                Or how do we evaluate biodiversity well being, richness or damages? 
+                All the techniques used in order to find answers to all of this is part of the geospatial biodiversity conservation. 
+            </p>
+            <p>
+                So what is geospatial biodiversity conservation? For short, it is an innovative and essential approach 
+                to conservation that utilises the power of geospatial technology to protect our natural world. 
+                It uses satellite imagery, remote sensing techniques, GIS and other tools for collecting and 
+                analysing the data for biodiversity and ecosystems.Geospatial biodiversity conservation provides 
+                a means to better understand and protect the biodiversity that we have left.
+            </p>
+
+        </section>
+
+        <section id="case-studies">
+        
+            <h2>Case studies</h2>
+
+            <div class="slides-container">
+
+                <div class="slides">
+                    <video muted controls>
+                        <source src="images/GPS_kepler.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video> 
+                    <h3>Our biodiversity project - Kepler GL</h3>
+                    <p> Description; data used: Inaturalist, movebank (https://www.movebank.org/cms/webapp?gwt_fragment=page=studies,path=study10763606)</p>
+                </div>
+               
+                <div class="slides">
+                    <img src="images/birdMigrationExplorer.jpg">
+                    <h3>Our biodiversity project - ArcGIS</h3>
+                    <p> Description; data used: Inaturalist, movebank</p>
+                </div>
+
+                <div class="slides">
+                    <img src="images/birdMigrationExplorer.jpg">
+                    <h3><a href="https://explorer.audubon.org/home?adusf=linkedin&aduc=esri&adut=20f06a20-14db-46a2-bc92-8c5b938c84ab&threatOverlay=expand">Bird Migration Explorer</a></h3>
+                    <p> Description</p>
+                </div>
+
+                <div class="slides">
+                    <img src="images/halfEarth.jpg">
+                    <h3><a href="https://map.half-earthproject.org/">Half-Earth Project Map</a></h3>
+                    <p> TODO: Description
+                        additional resources for this project: https://www.gisforscience.com/chapter3/?adusf=linkedin&aduc=esri&adut=66269c94-2608-47a7-b799-ac54fc038944#learn-more
+                    </p>
+                </div>
+
+                <div class="slides">
+                    <img src="images/euroBird.jpg">
+                    <h3><a href="https://eurobirdportal.org/ebp/en/#home/">EuroBird Portal</a></h3>
+                    <p> TODO: Description</p>
+                </div>
+
+                <div class="slides">
+                    <img src="images/storyMap.jpg">
+                    <h3><a href="https://storymaps.arcgis.com/stories/4492f709e4704dd39b0c29cb155487ff">The Diversity of Life: Atlas</a></h3>
+                    <p> TODO: Description
+                        part of this series: https://storymaps.arcgis.com/collections/cf8b6867ad954a6e9ed400ca9e9206ea
+                    </p>
+                </div>
+             
+             
+             <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
+                <a class="next" onclick="moveSlides(1)">&#10095;</a>
+
+                <button onclick="moveSlides(0)">Next case study</button>
+
+            </div>
+
+            <script src="slides.js"></script>  
+
+        </section>    
+
+        <section id="technical-skills">
+            <h2>Technical skills</h2>           
+            <p>
+                As a geospatial biodiversity expert, it is important to have a diverse range of technical skills to effectively work towards the goal of conservation. Some of the most important technical skills required in this field include GIS (Geographic Information System), remote sensing, data management, database design, and programming languages.
+            </p>
+            
+            <h3>GIS and spatial analysis</h3>
+            <div>                
+                <p>
+                    GIS is an essential tool for geospatial biodiversity conservation. It allows experts to analyze spatial data and create detailed maps to better understand the distribution and abundance of plant and animal species. This involves the ability to analyze spatial data and identify patterns or relationships between different variables. To work effectively in this field, it is crucial to have a strong understanding of GIS software such as ArcGIS, QGIS, or ENVI.
+                </p>
+                <div class="gallery-container">
+                    <!-- <div class="gallery">
+                        <img src="images/birdMigrationExplorer.jpg">
+                        <a href="https://learn.arcgis.com/en/gallery/#?e=beginner&i=naturalres">ArcGIS Tutorials</a>
+                        <p>short description</p>
+                    </div> -->
+
+                    <a href="https://learn.arcgis.com/en/gallery/#?e=beginner&i=naturalres" class="gallery">
+                        <img src="images/ArcGIS_logo.png">
+                        <span>ArcGIS Tutorials</span>
+                        <p>short description</p>
+                    </a>
+
+                    <a href="https://docs.qgis.org/3.28/en/docs/training_manual/index.html" class="gallery">
+                        <img src="images/QGIS_logo,_2017.svg.png">
+                        <span>QGIS Tutorials</span>
+                        <p>short description</p>
+                    </a>
+                    
+                    <a href="https://docs.kepler.gl/docs/user-guides" class="gallery">
+                        <img src="images/49567843.png">
+                        <span>Kepler GL</span>
+                        <p>short description</p>
+                    </a>
+
+                </div>
+            </div>
+            
+ 
+            <h3> Remote sensing</h3>
+            <div>
+                <div class="gallery-container">
+                    <a href="https://developers.google.com/earth-engine/guides/getstarted" class="gallery">
+                        <img src="images/earth-engine-logo.png">
+                        <span>Google Earth Engine</span>
+                        <p>short description</p>
+                    </a>
+                </div>
+                <p>
+                    Remote sensing is another key skill that is necessary for geospatial biodiversity conservation. It involves the use of satellite imagery and aerial photography to gather data about the earth's surface. This data can be used to monitor changes in land cover, detect the presence of invasive species, and identify areas of high biodiversity. Familiarity with remote sensing software such as ERDAS Imagine, ENVI, or Google Earth Engine is necessary to work effectively in this field.
+                </p>
+            </div>
+
+
+
+            <h3> Data management and database design</h3>
+            <div>
+                <p>
+                    Data management and database design skills are also important for geospatial biodiversity experts. The ability to effectively manage and organize large datasets is crucial for making informed decisions about conservation management. Familiarity with database management software such as SQL or Oracle, and data processing software such as Excel or Access can be beneficial for managing large datasets.
+                </p>
+                <div class="gallery-container">
+                    <a href="https://www.sqltutorial.org/" class="gallery">
+                        <img src="images/Sql_data_base_with_logo.png">
+                        <span>SQL</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://postgis.net/workshops/postgis-intro/" class="gallery">
+                        <img src="images/Logo_square_postgis.png">
+                        <span>PostGIS</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://support.microsoft.com/en-us/office/create-a-map-chart-in-excel-f2cfed55-d622-42cd-8ec9-ec8a358b593b" class="gallery">
+                        <img src="images/Microsoft_Office_Excel_(2019–present).svg.png">
+                        <span>Excel</span>
+                        <p>short description</p>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <h3>Programming languages</h3>
+            <div>
+                <div class="gallery-container">
+                    <a href="https://www.kaggle.com/learn" class="gallery">
+                        <img src="images/Python-logo-notext.svg.png">
+                        <span>Python Tutorials</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://www.tutorialspoint.com/r/index.htm" class="gallery">
+                        <img src="images/R_logo.svg.png">
+                        <span>R Tutorials</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://www.tutorialspoint.com/java/index.htm" class="gallery">
+                        <img src="images/Java_programming_language_logo.svg.png">
+                        <span>Java</span>
+                        <p>short description</p>
+                    </a>
+                </div>
+                <p>
+                    Programming languages such as Python, R, or Java are also important for geospatial biodiversity experts. These languages allow experts to automate repetitive tasks and analyze large datasets efficiently. A strong foundation in programming is essential for processing and managing large amounts of data that are common in geospatial biodiversity conservation.
+                </p>
+            </div>
+
+            <h3>Web technologies</h3>
+            <div>
+                <p>
+                    Web technologies are crucial in nowdays GIS domain. They allow both processing and presentation in attractive and interactive way. What's more they are very accesible as they are ready to use in a browser, so non-technical users can also take advantage of them.
+                </p>
+                <div class="gallery-container">
+                    <a href="https://www.javascripttutorial.net/" class="gallery">
+                        <img src="images/JavaScript-logo.png">
+                        <span>JavaScript</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://openlayers.org/doc/tutorials/concepts.html" class="gallery">
+                        <img src="images/OpenLayers_logo.png">
+                        <span>OpenLayers</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://leafletjs.com/examples.html" class="gallery">
+                        <img src="images/Leaflet_logo.png">
+                        <span>Leaflet</span>
+                        <p>short description</p>
+                    </a>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section id="soft-skills">
+            <h2>Soft skills</h2>
+
+            <p>
+                Soft skills are essential for anyone working in geospatial biodiversity conservation. These skills are just as important as technical skills and can make the difference between success and failure in this field. In this section, we will explore some of the key soft skills that geospatial biodiversity experts need and some training recommendations to improve these skills.
+                Experts should continuously invest in attending relevant workshops, training programs, and courses to develop and improve these skills.
+            </p>
+
+            <h3>Communication Skills</h3>
+            <div>
+                <p>
+                    Effective communication is crucial for geospatial biodiversity experts to convey scientific information to various stakeholders, including policymakers, scientists, and the public. It also helps in writing reports, proposals, and scientific papers that are accessible to a wide audience. Experts should attend workshops or courses on technical writing, scientific communication, and public speaking to improve communication skills.    
+                </p>
+                <div class="gallery-container">
+                    <a href="https://www.coursera.org/learn/communication-as-a-technical-leader" class="gallery">
+                        <img src="images/Communication.jpg">
+                        <span>Communication as a Technical Leader</span>
+                        <p>short description</p>
+                    </a>
+                </div>
+            </div>
+
+            <h3>Collaboration Skills</h3>
+            <div>
+                <div class="gallery-container">
+
+                    <a href="https://www.danielgoleman.info/purchase/" class="gallery">
+                        <img src="images/DanielGoleman_EmotionallyIntelligentLeader.jpg">
+                        <span>The emotionally intelligent leader - Daniel Goleman</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://www.atlassian.com/agile/teams" class="gallery">
+                        <img src="images/AgileTeam.jpg">
+                        <span>Managing Agile Teams</span>
+                        <p>short description</p>
+                    </a>
+                </div>
+                <p>
+                    Geospatial biodiversity experts often work in multidisciplinary teams, and effective collaboration is crucial for project success. They must be willing to work with others, build relationships, and communicate effectively. Collaboration skills can be enhanced by attending team-building workshops, learning to give and receive feedback, and developing conflict resolution skills.
+                </p>
+            </div>
+
+            <h3>Leadership Skills</h3>
+            <div>
+                <p>
+                    Effective leadership is essential for geospatial biodiversity experts to inspire and motivate their team members towards a common goal. Leaders should have a clear vision, be able to delegate responsibilities, and communicate expectations effectively. To enhance leadership skills, one can attend leadership development programs, workshops on team management, and mentorship programs.
+                </p>
+                <div class="gallery-container">
+                    <a href="https://www.kenblanchard.com/Solutions/SLII" class="gallery">
+                        <img src="images/SituationalLeadership.jpg">
+                        <span>Ken Blanchard Situational Leadership</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://www.danielgoleman.info/purchase/" class="gallery">
+                        <img src="images/DanielGoleman_EmotionalIntelligence.jpg">
+                        <span>Emotional intelligence - Daniel Goleman</span>
+                        <p>short description</p>
+                    </a>
+                </div>
+            </div>
+
+            <h3>Project Management Skills</h3>
+            <div>
+                <div class="gallery-container">
+                    <a href="https://www.coursera.org/learn/project-management-foundations#about" class="gallery">
+                        <img src="images/ProjectManagement.jpg">
+                        <span>Project management</span>
+                        <p>short description</p>
+                    </a>
+                </div>
+                <p>
+                    Geospatial biodiversity conservation projects can be complex, and experts must be able to manage multiple tasks simultaneously. Effective project management skills include the ability to prioritize tasks, set deadlines, and delegate responsibilities. For developing these skills, it is recommended to attend workshops or training programs on project management, time management, and organizational skills to improve their abilities.
+                </p>    
+            </div>
+
+            <h3>Flexibility and Adaptability</h3>
+            <div>
+                <p>
+                    Conservation is a constantly evolving field, and experts must be able to adapt to changes in technology, policy, and environmental conditions. They should be willing to think outside the box, find innovative solutions, and remain flexible. Experts can enhance their flexibility and adaptability by attending training programs on creative problem-solving, risk management, and change management.
+                </p>
+                <div class="gallery-container">
+                    <a href="https://www.coursera.org/specializations/influencing-storytelling-change-management#about" class="gallery">
+                        <img src="images/ChangeManagement.jpg">
+                        <span>Change management</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://www.agilealliance.org/agile101/the-agile-manifesto/" class="gallery">
+                        <img src="images/AgileManifesto.png">
+                        <span>Agile Manifesto</span>
+                        <p>short description</p>
+                    </a>
+                    <a href="https://www.linkedin.com/learning/agile-foundations/understanding-agile?autoplay=true&u=2038124" class="gallery">
+                        <img src="images/AgileMethodology.jpg">
+                        <span>Agile methodology</span>
+                        <p>short description</p>
+                    </a>
+                </div>
+            </div>
+       
+        </section>
+
+        <section id="repositories">
+        
+            <h2>Data repositories</h2>
+            <div class="gallery-container">
+                <a href="https://www.inaturalist.org/" class="gallery">
+                    <img src="images/inaturalist.png">
+                    <span>iNaturalist</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://www.gbif.org/" class="gallery">
+                    <img src="images/gbif-standard-logo-green.png">
+                    <span>Global Biodiversity Information Facility</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://mol.org/" class="gallery">
+                    <img src="images/mol.png">
+                    <span>Map of Life</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://map.unbiodiversitylab.org/earth" class="gallery">
+                    <img src="images/unbio.png">
+                    <span>UN Biodiversity Lab</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://livingplanetindex.org/home/index" class="gallery">
+                    <img src="images/livingPlanetIndex.jpg">
+                    <span>Living Planet Index</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://www.iucnredlist.org/resources/spatial-data-download" class="gallery">
+                    <img src="images/IUCN_Red_List.svg.png">
+                    <span>IUCN Red List</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://www.wildlifeinsights.org/" class="gallery">
+                    <img src="images/Wildlife insight.png">
+                    <span>Wildlife Insights</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://www.movebank.org/cms/movebank-main" class="gallery">
+                    <img src="images/movebank.png">
+                    <span>Movebank</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://obis.org" class="gallery">
+                    <img src="images/obis.png">
+                    <span>Ocean Biodiversity Information System</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://biodiversity.europa.eu/" class="gallery">
+                    <img src="images/biodiversityEurope.svg">
+                    <span>Biodiversity Information System For Europe</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://geospatial.tnc.org/" class="gallery">
+                    <img src="images/nature-conservancy.jpg">
+                    <span>The Nature Conservancy - Geospatial Conservation Atlas</span>
+                    <p>short description</p>
+                </a>
+                <a href="https://www.protectedplanet.net/en" class="gallery">
+                    <img src="images/protected-planet.jpg">
+                    <span>Protected Planet</span>
+                    <p>short description</p>
+                </a>
+
+            </div>
+
+        </section> 
+        
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>
+                Geospatial biodiversity conservation is a critical approach to protecting our natural world. 
+                By utilising geospatial technology to collect and analyse data, we can gain a better understanding 
+                of the biodiversity that we have left and develop effective conservation strategies. 
+                However, there are many challenges that must be overcome to make geospatial biodiversity conservation a success. 
+                One of the most significant challenges is the lack of data on many species and ecosystems. 
+                This makes it difficult to determine the most effective conservation strategies. 
+                Additionally, conservation efforts can be hindered by a lack of funding and political will. 
+                As a global community, we must work together to promote and fund geospatial biodiversity 
+                conservation efforts to protect our planet for future generations.
+            </p>
+
+        </section>
+    </main>
+
+    <footer>
+        <div id="contact">
+            <p>
+                Project is a part of Legacy for Women+ in Geospatial mentroing programme
+            </p>
+            <p><a href="./attributions.html">Photo attributions</a></p>
+            <p id="copyright"> &copy; 2023 Dagmara Pasiak & Claudia Blagu</p>
+
+        </div>
+     </footer>
+
+</body>
+</html>
