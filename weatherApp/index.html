@@ -1,0 +1,412 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+  <title>Sense Box</title>
+  <!-- Application structure -->
+  <!-- The app was created using ArcGIS components, the main one being arcgis-scene, with other components embedded inside it. All data-related controls and information are in the dashboard created using Calcite components.
+ First, the script fetches CSV data from ArcGIS Online and parses it using the parseCSV function. The returned object is used to create two layers: one with collected data and one with external data. The ArcGISViewReadyChange listener checks when the map component is loaded, after which the created layers are added and the controls are set.-->
+
+  <!-- Load Calcite components from CDN -->
+  <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/2.13.2/calcite.css" />
+  <script type="module" src="https://js.arcgis.com/calcite-components/2.13.2/calcite.esm.js"></script>
+
+  <!-- Load the ArcGIS Maps SDK for JavaScript from CDN -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/dark/main.css" />
+  <script src="https://js.arcgis.com/4.32/"></script>
+
+  <!-- Load Map components from CDN-->
+  <script type="module" src="https://js.arcgis.com/map-components/4.32/arcgis-map-components.esm.js"></script>
+
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #dashboard {
+      padding: 1rem;
+      font-weight: 36;
+      text-align: center;
+      width: 30rem;
+    }
+  </style>
+</head>
+
+<body>
+  <arcgis-scene basemap="satellite" ground="world-elevation" zoom="8" center="8,45">
+    <arcgis-zoom position="top-left"></arcgis-zoom>
+    <arcgis-navigation-toggle position="top-left"></arcgis-navigation-toggle>
+    <arcgis-compass position="top-left"> </arcgis-compass>
+    <arcgis-expand position="top-left" group="top-left">
+      <arcgis-basemap-gallery></arcgis-basemap-gallery>
+    </arcgis-expand>
+
+    <arcgis-placement position="top-right">
+      <!--    Creating a dashboard with three tabs that represent different section and accordian for different subsection that allow to hide the unnecessary content    -->
+      <div id="dashboard" class="esri-widget">
+        <p>
+        <h2>Mapping Temperature
+        </h2>
+        The map allows you to compare temperature information gathered from two sources, SenseBox and Open-Meteo, and see how temperature changed throughout the day.
+        </p>
+        <calcite-tabs layout="center">
+          <calcite-tab-nav slot="title-group">
+            <calcite-tab-title selected>
+              Controls
+            </calcite-tab-title>
+            <calcite-tab-title>
+              Legend
+            </calcite-tab-title>
+            <calcite-tab-title>About</calcite-tab-title>
+          </calcite-tab-nav>
+          <calcite-tab selected>
+            <calcite-accordion appearance="transparent" selection-mode="multiple">
+              <calcite-accordion-item heading="Layer visibility" icon-start="view-visible" expanded>
+                <arcgis-layer-list position="top-right"></arcgis-layer-list>
+              </calcite-accordion-item>
+              <calcite-accordion-item heading="Camera control" icon-start="video" expanded>
+                <calcite-button id="camera-zoom" kind="neutral">Zoom to data</calcite-button>
+              </calcite-accordion-item>
+              <calcite-accordion-item heading="Time control" icon-start="clock" expanded>
+                <!--  Setting the mode to one point, with 1 hour interval and looping  -->
+                <arcgis-time-slider id="timeslider" position="bottom-right" mode="instant" play-rate="500" time-visible stops-interval-value="1" stops-interval-unit="hours" loop></arcgis-time-slider>
+              </calcite-accordion-item>
+            </calcite-accordion>
+          </calcite-tab>
+          <calcite-tab>
+            <arcgis-legend position="bottom-right"></arcgis-legend>
+          </calcite-tab>
+          <calcite-tab>
+            <calcite-accordion appearance="transparent" selection-mode="multiple">
+              <calcite-accordion-item heading="About" icon-start="information" expanded>
+                The application is an assignment for an Advanced GIS course at ETH Zurich created by Dagmara Pasiak. The map represent two sets of temperature data: Sensebox data (along the walked path) Open-meteo data (sampled at the begining and end of the path).
+              </calcite-accordion-item>
+              <calcite-accordion-item heading="Privacy Notice" icon-start="security" expanded>
+                The data from sensebox were gathered myself (together with my group members) and the external data was fetched using Open-Meteo, an open-source weather API.
+              </calcite-accordion-item>
+              <calcite-accordion-item heading="Legal Notice" icon-start="file-user" expanded>
+                The map was created under a Creative Commons license.
+              </calcite-accordion-item>
+            </calcite-accordion>
+          </calcite-tab>
+        </calcite-tabs>
+      </div>
+    </arcgis-placement>
+  </arcgis-scene>
+
+  <script>
+    require([
+        "esri/layers/FeatureLayer",
+        "esri/Graphic",
+        "esri/layers/GraphicsLayer",
+        "esri/core/reactiveUtils",
+        "esri/geometry/Point",
+        "esri/geometry/Polyline",
+        "esri/geometry/operators/generalizeOperator",
+        "esri/time/TimeExtent",
+        "esri/Basemap",
+        "esri/portal/PortalItem",
+        "esri/widgets/BasemapGallery/support/LocalBasemapsSource",
+        "esri/layers/VectorTileLayer",
+        "esri/geometry/support/webMercatorUtils",
+        "esri/geometry/geometryEngine",
+      ], (
+        FeatureLayer, Graphic, GraphicsLayer,
+        reactiveUtils, Point, Polyline, generalizeOperator, TimeExtent, Basemap, PortalItem, LocalBasemapsSource, VectorTileLayer, webMercatorUtils, geometryEngine) =>
+      (async () => {
+        // Setting the infromation to be displayed in the popup
+        const popTemplate = {
+          title: "Point Information",
+          content: "Temperature: {temperature} °C <br> Time:  {timestamp} ",
+        };
+        // Setting field names and type for both feature layers
+        const fields = [{
+            name: "ObjectID",
+            type: "oid"
+          },
+          {
+            name: "longitude",
+            type: "double"
+          },
+          {
+            name: "latitude",
+            type: "double"
+          },
+          {
+            name: "timestamp",
+            type: "date"
+          },
+          {
+            name: "temperature",
+            type: "double"
+          }
+        ]
+        // Setting the visual variable renderer specifing variable name, gaps and colors
+        const temperatureVariables = [{
+          type: "color",
+          field: "temperature",
+          stops: [{
+              value: 10,
+              color: [96, 88, 190, 0.7]
+            },
+            {
+              value: 15,
+              color: [65, 158, 203, 0.7]
+            },
+            {
+              value: 20,
+              color: [44, 220, 198, 0.7]
+            },
+            {
+              value: 25,
+              color: [111, 255, 153, 0.7]
+            },
+            {
+              value: 30,
+              color: [255, 255, 55, 0.7]
+            }
+          ]
+        }]
+        // Initializing varibales so they have global scope
+        let cylinderLayer, lineLayer;
+        //  Link to the collected data hosted at ArcGIS Online
+        const csvUrl = "https://www.arcgis.com/sharing/rest/content/items/40b4072a6cde460caadc20b732545f2e/data";
+        // Asynchronous data fecht and passing the result first to the parseCSV function to create the object that can be passed to the functions that are responsible for creating two temperature layers
+        (async () => {
+          try {
+            const response = await fetch(csvUrl);
+            const csvText = await response.text();
+            const csvData = parseCSV(csvText);
+            lineLayer = await createLineLayer(csvData);
+            cylinderLayer = await createCylinderLayer(csvData);
+          } catch (error) {
+            console.error("Error loading CSV:", error);
+          }
+        })();
+        // Getting reference to the arcgis-scene component and checking then the view is ready
+        const arcgisMap = document.querySelector("arcgis-scene");
+        if (!arcgisMap.ready) {
+          arcgisMap.addEventListener("arcgisViewReadyChange", handleMapReady, {
+            once: true
+          });
+        } else {
+          handleMapReady();
+        }
+        // Function called once the view of the Scene is ready
+        async function handleMapReady() {
+          const view = arcgisMap.view;
+          // adding created layers
+          arcgisMap.addLayer(lineLayer);
+          arcgisMap.addLayer(cylinderLayer);
+          // waiting for the line layer to be fully loaded
+          await arcgisMap.whenLayerView(lineLayer);
+          // moving the camera to the layer extent
+          view.goTo(lineLayer.fullExtent);
+          // Setting timeslider extents - general and current
+          const timeSlider = document
+            .getElementById("timeslider")
+          timeSlider.fullTimeExtent = {
+            start: new Date("2025-05-01T00:00:00Z"),
+            end: new Date("2025-05-01T23:59:59Z")
+          };
+          timeSlider.timeExtent = {
+            start: new Date("2025-05-01T11:00:00Z"),
+            end: new Date("2025-05-01T11:59:59Z")
+          };
+          timeSlider.stops = {
+            interval: {
+              value: 1,
+              unit: "hours"
+            }
+          };
+          // Setting the button to allow to zoom the the layer
+          document
+            .getElementById("camera-zoom")
+            .addEventListener("click", function() {
+              view.goTo(lineLayer.fullExtent);
+            });
+        }
+        // Parsing the CSV data to create an object to create Feature Layers
+        function parseCSV(csvText) {
+          const lines = csvText.split("\n"); // Spliting the CSV lines
+          lines.pop(); // Removing the last line
+          const headers = lines[0].split(","); // Getting headers from first line
+          // Changing each line into an object
+          const parsedData = lines.slice(1).map((line) => {
+            const values = line.split(",");
+            let row = {};
+            // Mapping the attributes to values
+            headers.forEach((header, index) => {
+              row[header.trim()] = values[index] ? values[index].trim() : "";
+            });
+            // Returning the necessary information: location, date and temperature
+            return {
+              longitude: parseFloat(row["matched_longitude"]),
+              latitude: parseFloat(row["matched_latitude"]),
+              temperature: parseFloat(row["temperature(HDC1080)"]),
+              timestamp: new Date(row["timestamp"]),
+            };
+          });
+          return parsedData.filter(row => row !== null); // removing null values
+        }
+        // Creating segmented line layer from collected data
+        async function createLineLayer(csvData) {
+          const lineGraphics = [];
+          // Creating a polyline graphic between each point and assiging its attributes
+          for (let i = 0; i < csvData.length - 1; i++) {
+            const startPoint = csvData[i];
+            const endPoint = csvData[i + 1];
+            if (!startPoint || !endPoint) continue; // Skiping invalid points
+            const lineGraphic = new Graphic({
+              geometry: {
+                type: "polyline",
+                paths: [
+                  [
+                    [startPoint.longitude, startPoint.latitude],
+                    [endPoint.longitude, endPoint.latitude]
+                  ]
+                ],
+                spatialReference: {
+                  wkid: 4326
+                }
+              },
+              attributes: {
+                ObjectID: i + 1,
+                temperature: startPoint.temperature,
+                timestamp: startPoint.timestamp.getTime()
+              }
+            });
+            lineGraphics.push(lineGraphic);
+          }
+          // Specifing a 3D line renderer
+          const temperatureRenderer = {
+            type: "simple",
+            symbol: {
+              type: "line-3d",
+              symbolLayers: [{
+                type: "line",
+                size: 5,
+                cap: "round",
+                join: "round",
+              }, ],
+            },
+            visualVariables: temperatureVariables,
+          };
+          // Returning a layer with created graphics, setting up popups, renderer and fields
+          return new FeatureLayer({
+            title: "Sensebox - temperature (°C)",
+            source: lineGraphics,
+            objectIdField: "ObjectID",
+            geometryType: "polyline",
+            popupTemplate: popTemplate,
+            elevationInfo: {
+              mode: "on-the-ground"
+            },
+            fields: fields,
+            renderer: temperatureRenderer,
+          });
+        }
+        // Creating cylinder layer that represent external data
+        async function createCylinderLayer(csvData) {
+          // Getting first and last point of the path
+          const endpoints = [csvData[0], csvData[csvData.length - 1]];
+          const graphics = [];
+          try {
+            // Creating an API call for those points to get the temperature
+            for (let index = 0; index < endpoints.length; index++) {
+              const point = endpoints[index];
+              const timestamp = new Date(point.timestamp);
+              // timestamp.setUTCHours(timestamp.getUTCHours() + 2); // Apply GMT+2 offset
+              const dateStr = timestamp.toISOString().split("T")[0]; // yyyy-mm-dd
+              // Creating a url with required parameters: location, date and weather variable and featching it
+              const apiUrl = `https://archive-api.open-meteo.com/v1/archive?latitude=${point.latitude}&longitude=${point.longitude}&start_date=${dateStr}&end_date=${dateStr}&hourly=temperature_2m&timezone=UTC`;
+              const res = await fetch(apiUrl);
+              const data = await res.json();
+              const times = data.hourly?.time;
+              const temps = data.hourly?.temperature_2m;
+              if (!times || !temps) continue; // Skipping empty data
+              // Creating a graphic for each hour and set the variable value and time
+              for (let h = 0; h < 24; h++) {
+                const time = new Date(`${dateStr}T${String(h).padStart(2, "0")}:00:00Z`);
+                const isoHour = time.toISOString().slice(0, 13); // yyyy-mm-ddThh
+                const indexInApi = times.findIndex(t => t.startsWith(isoHour));
+                const temperature = indexInApi !== -1 ? temps[indexInApi] : null;
+                if (temperature === null) continue;
+                graphics.push(new Graphic({
+                  geometry: {
+                    type: "point",
+                    longitude: point.longitude,
+                    latitude: point.latitude,
+                  },
+                  attributes: {
+                    ObjectID: graphics.length + 1,
+                    longitude: point.longitude,
+                    latitude: point.latitude,
+                    temperature: temperature,
+                    timestamp: time.getTime(),
+                  },
+                }));
+              }
+            }
+            // Creating a layer with created graphic, time information, fields, popups, labels and renderer
+            const featureLayer = new FeatureLayer({
+              title: "OpenMeteo - temperature (°C)",
+              source: graphics,
+              objectIdField: "ObjectID",
+              geometryType: "point",
+              fields: fields,
+              timeInfo: {
+                startField: "timestamp",
+                endField: "timestamp",
+                interval: {
+                  value: 1,
+                  unit: "minutes"
+                },
+              },
+              popupTemplate: popTemplate,
+              elevationInfo: {
+                mode: "on-the-ground"
+              },
+              labelingInfo: {
+                labelExpressionInfo: {
+                  expression: "$feature.temperature"
+                },
+                symbol: {
+                  type: "text",
+                  color: "black",
+                  haloSize: 2,
+                  haloColor: "white",
+                }
+              },
+              renderer: {
+                type: "simple",
+                symbol: {
+                  type: "point-3d",
+                  symbolLayers: [{
+                    type: "object",
+                    resource: {
+                      primitive: "cylinder"
+                    },
+                    width: 50,
+                    height: 100,
+                  }],
+                },
+                visualVariables: temperatureVariables,
+              },
+            });
+            return featureLayer;
+          } catch (err) {
+            console.error(`Failed to fetch weather data for point ${index}`, err);
+          }
+        }
+      })());
+  </script>
+</body>
+
+</html>
