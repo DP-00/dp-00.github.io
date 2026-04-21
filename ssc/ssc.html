@@ -2,17 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plant-Based Catering</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
     <style>
       body {
         font-family: "Montserrat", sans-serif;
         margin: 0;
-        background: #ffffff;
-        color: #333;
+        background: #ffffff !important;
+        color: #333 !important;
         line-height: 1.6;
       }
 
@@ -31,13 +33,88 @@
 
       h2 {
         color: #5c7a39;
+        font-weight: 800;
+      }
+
+      a {
+        color: #5c7a39;
+        text-decoration: underline;
+      }
+
+      .intro {
+        color: #5c7a39;
+        font-size: 18px;
+        line-height: 1.8;
+        letter-spacing: 0.04em;
+        word-spacing: 0.15em;
+        margin: 10px 0 10px 0;
+        text-align: center;
+        font-weight: bold;
       }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: 1fr;
         gap: 20px;
         margin-top: 20px;
+      }
+
+      @media (max-width: 600px) {
+        body {
+          font-size: 14px;
+        }
+
+        h1 {
+          font-size: 20px;
+        }
+
+        h2 {
+          font-size: 16px;
+        }
+
+        h3 {
+          font-size: 14px;
+        }
+
+        .intro {
+          font-size: 14px;
+          letter-spacing: 0.03em;
+          word-spacing: 0.1em;
+        }
+
+        .card p {
+          font-size: 12px;
+        }
+
+        details p {
+          font-size: 12px;
+        }
+      }
+
+      @media (min-width: 700px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1000px) {
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        section {
+          padding: 20px 15px;
+        }
+
+        .card {
+          padding: 16px;
+        }
+
+        .icon {
+          font-size: 28px;
+        }
       }
 
       .card {
@@ -45,6 +122,22 @@
         color: white;
         padding: 18px;
         border-radius: 10px;
+      }
+
+      .card a {
+        color: white;
+      }
+
+      button {
+        background: #5c7a39;
+        color: white;
+        padding: 18px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        margin: 60px auto;
+        display: block;
+        font-weight: bold;
       }
 
       .title {
@@ -58,11 +151,6 @@
         font-size: 34px;
         min-width: 40px;
         text-align: center;
-      }
-
-      a {
-        color: white;
-        text-decoration: underline;
       }
 
       hr {
@@ -80,7 +168,9 @@
         padding: 14px;
         margin-bottom: 12px;
       }
-
+      details a {
+        color: white;
+      }
       summary {
         cursor: pointer;
         font-weight: bold;
@@ -95,9 +185,15 @@
     <header>
       <h1>Why VSETH should champion a climate-friendly and plant-based catering</h1>
     </header>
+    <section>
+      <p class="intro">
+        The food group of SSC has submitted two motions to VSETH about switching to plant-based catering at ETH. Below we present some arguments for our proposal, but you can read the text of the motion
+        <a href="https://docs.google.com/document/d/1EuAkFuOXPec0rDve68jfefGzBM3luGJK">here</a> and <a href="https://docs.google.com/document/d/1185iLxKX9nmapfpkdU1rjw6s2BexloBT">here.</a>
+      </p>
+    </section>
 
     <section>
-      <h2>Plant-based is the single most important factor</h2>
+      <h2>Plant-based food is the cornerstone of sustainability</h2>
 
       <div class="grid">
         <div class="card">
@@ -106,7 +202,7 @@
             <h3>Minimal land use</h3>
           </div>
           <p>
-            A thousand years ago, less than 4% of habitable land was used for farming. Today it’s 44%. <a href="https://ourworldindata.org/global-land-for-agriculture">Only a quarter</a> grows food eaten directly by people, while 70% supports
+            A thousand years ago, less than 4% of habitable land was used for farming. Today it's 44%. <a href="https://ourworldindata.org/global-land-for-agriculture">Only a quarter</a> grows food eaten directly by people, while 70% supports
             livestock that provide just 38% of global protein and 17% of calories. If everyone ate a vegan diet, <a href="https://ourworldindata.org/environmental-impacts-of-food">farmland use could fall</a> by 75%, freeing an area equal to North
             America and Brazil combined.
           </p>
@@ -119,7 +215,7 @@
           </div>
           <p>
             70% of global freshwater <a href="https://doi.mendelu.cz/artkey/doi-990000-4300_the-food-losses-and-food-waste-it-s-impact-and-initiatives-on-environmental-management-in-the-slovak-republic.php">is used for agriculture</a>. Animal
-            products require vastly more resources: for example, producing 1 kg of beef requires around 15,000 liters of water, while the same amount of lentils requires only about 1,250 liters—12 times less!
+            products require vastly more resources: for example, producing 1 kg of beef requires around 15,000 liters of water, while the same amount of lentils requires only about 1,250 liters - 12 times less!
           </p>
         </div>
 
@@ -172,8 +268,9 @@
           </div>
           <p>
             As climate change starts <a href="https://www.theguardian.com/environment/2025/jun/01/this-is-ground-zero-for-blatten-the-tiny-swiss-village-engulfed-by-a-mountain">impacting everyday life</a> more and more, the need to adapt will become
-            increasingly pressing. Plant-based food is one part of the picture and we can stay ahead of the curve by supporting this transition. The ETH spin-off <a href="https://eatplanted.com/">Planted</a> focusing on meat substitutes is one of
-            many Swiss start-ups in this space, but other technologies like precision fermentation, vegan dairy or cultured meat are promising as well.
+            increasingly pressing. Plant-based food is one part of the picture and we can stay ahead of the curve by supporting this transition. The ETH spin-off <a href="https://eatplanted.com/">Planted</a> focusing on meat substitutes is
+            <a href="https://houseofswitzerland.org/swissstories/society/swiss-startups-driving-vegan-innovation"> one of many Swiss start-ups</a> in this space, but other technologies like precision fermentation, vegan dairy or cultured meat are
+            promising as well.
           </p>
         </div>
 
@@ -184,8 +281,8 @@
           </div>
           <p>
             Whether <a href="https://www.mensa.uzh.ch/en/menueplaene0/raemi59.html">in Zürich</a> or <a href="https://www.stw.berlin/mensen/einrichtungen/technische-universit%C3%A4t-berlin/veggie2.0.html">abroad</a>, fully plant-based mensas already
-            exist and thrive. Furthermore, many canteens choose to increase the ratio of plant-based food in their meals. While the plant-based model is far from ubiquitous due to cultural reasons, it is demonstrably viable and gaining ground every
-            year.
+            exist and thrive. Furthermore, <a href="https://proveg.org/de/news/planetary-health-mensa-2023">many canteens</a> choose to increase the ratio of plant-based food in their meals. While the plant-based model is far from ubiquitous due to
+            cultural reasons, it is demonstrably viable and gaining ground every year.
           </p>
         </div>
       </div>
@@ -250,19 +347,28 @@
       <h2>Questions & Answers</h2>
 
       <details>
-        <summary>Q: Soy contains estrogen, is it safe to consume?</summary>
-        <p>A: While phytoestrogens are structurally similar to estradiol, their effects on humans are inconsistent and often positive.</p>
+        <summary>Soy contains estrogen, is it safe to consume?</summary>
+        <p>
+          While phytoestrogens, in this case isoflavones in soy, are structurally similar to estradiol, and can indeed interact with the endocrine systems of some animals, their effects on humans are inconsistent, as they can have both estrogenic and
+          anti-estrogenic activities. The limited scientific evidence we have generally links intake of isoflavones with positive outcomes in humans. In the case of soy milk, the often proposed alternative, cow's milk, can contain high levels of
+          mammalian hormones such as estradiol in significant amounts (especially when produced by a pregnant cow, which is common practice in industrial farming), which makes the argument against soy milk even weaker.
+        </p>
         <p><a href="https://lpi.oregonstate.edu/mic/dietary-factors/phytochemicals/soy-isoflavones">Source</a> | <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11784794/">Study</a></p>
       </details>
 
       <details>
-        <summary>Q: Why are non-vegan products often cheaper?</summary>
-        <p>Subsidies, economies of scale, infrastructure and demand dynamics explain this.</p>
+        <summary>If veganism is indeed more economical, how are non vegan products often more affordable than vegan products?</summary>
         <p>
-          A: Governments use <a href="https://www.nau.ch/news/schweiz/darum-ist-vegan-oft-teurer-als-fleisch-66485130">subsidies</a> and oversupply. Plant-based catering remains more economical as shown in
-          <a href="https://bryantresearch.co.uk/wp-content/uploads/2024/10/Case-for-Plant-Based-University-Catering.pdf">data</a>.
+          Basic microeconomics principles can explain this well. For the sake of food security, governments engage in <a href="https://www.nau.ch/news/schweiz/darum-ist-vegan-oft-teurer-als-fleisch-66485130">subsidies</a> and deliberately create an
+          oversupply of agricultural products. Thus, particularly some durable dairy products (e.g. milk powder) can be cheap in a way that doesn't reflect the production costs. It is also often cheaper to use existing supply lines and
+          infrastructure. This explains why the cost function might favor continuing to use animal based ingredients in some cases. Another avenue of analysis would be to look at the supply and demand profiles of plant based end products. The
+          consumers seeking plant based products have an expectation that they might have to overpay for the plant based version. In contrast, plant based products often have scarce competition compared to animal based counterparts. Thus, the
+          collective bargaining favors the suppliers and the expected price of plant based products can be higher than their animal based counterparts. It is notable that these forces apply to packaged food products. For university catering, hardly
+          any of these forces are relevant, and plant based catering is much more economical as demonstrated by the <a href="https://bryantresearch.co.uk/wp-content/uploads/2024/10/Case-for-Plant-Based-University-Catering.pdf">data</a> (also
+          presented above).
         </p>
       </details>
+      <!-- <button onclick="window.location.href = 'todo'">Ask as more questions!</button> -->
     </section>
   </body>
 </html>
